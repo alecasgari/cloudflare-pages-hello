@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>پروژه فول‌استک کلودفلر</title>
+</head>
+<body>
+    <h1>تست بک‌اند کلودفلر پیجز</h1>
+    <button id="fetch-btn">دریافت اطلاعات از بک‌اند</button>
+    <p id="result"></p>
+
+    <script>
+        document.getElementById('fetch-btn').addEventListener('click', async () => {
+            // کلودفلر به طور خودکار مسیر /api/hello را به پوشه functions متصل می‌کند
+            const response = await fetch('/api/hello');
+            const data = await response.json();
+            document.getElementById('result').innerText = `${data.message} \n زمان سرور: ${data.server_time}`;
+        });
+    </script>
+</body>
+</html>
